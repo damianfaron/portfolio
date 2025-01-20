@@ -721,6 +721,7 @@ img {
 		position: absolute;
 		height: 16px;
 		width: 16px;
+		touch-action: none;
 	}
 	.dot::after {
 		height: 24px;
@@ -792,7 +793,7 @@ img {
 	.two:hover,
 	.three:hover,
 	.four:hover {
-		transform: rotate(0) scale(0.8) translateX(0) translateY(0);
+		transform: rotate(0) scale(0.6) translateX(0) translateY(0);
 	}
 
 	/* *  trzecia druga kolumna*/
