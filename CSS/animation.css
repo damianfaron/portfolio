@@ -1,0 +1,790 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* =============================================== */
+/* główne style i przyciski */
+/* =============================================== */
+.page {
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	transform: translate(-50%, -50%);
+}
+.button {
+	width: 50px;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	border: none;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+	background-color: green;
+}
+
+.button.active {
+	display: inline-block;
+	background-color: green;
+}
+
+.section {
+	display: none;
+}
+.active {
+	display: block;
+}
+.style {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+/* ================================================ */
+/* ANIMATION */
+/* =============================================== */
+.anime1 {
+	position: absolute;
+	width: 50%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	animation: mainAnime 1.5s 5.5s ease-in-out forwards;
+}
+
+.box {
+	width: 90px;
+	height: 90px;
+	background-color: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.from-top {
+	animation: appear-top 3s 0.5s both;
+}
+.from-bottom {
+	animation: appear-left 3s 0.5s both;
+}
+
+.dot {
+	position: absolute;
+	height: 25px;
+	width: 25px;
+	background-color: black;
+	border-radius: 50px;
+	border: none;
+	animation: appear 1.5s 4s both;
+}
+.dot::after {
+	content: '';
+	height: 32px;
+	width: 32px;
+	border: 4px solid black;
+	background-color: transparent;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50px;
+	transition: opacity 0.3s ease-in-out;
+}
+.dot:hover::after {
+	opacity: 0;
+}
+.dot-left {
+	top: 50%;
+	left: 20%;
+	transform: translateY(-50%);
+	transition: background-color 0.3s;
+}
+.dot-left:hover {
+	background-color: green;
+}
+.dot-left:hover ~ .box {
+	background-color: green;
+}
+.dot-right {
+	top: 50%;
+	right: 20%;
+	transform: translateY(-50%);
+	transition: background-color 0.3s;
+}
+.dot-right:hover {
+	background-color: rgb(215, 247, 4);
+}
+.dot-right:hover ~ .box {
+	background-color: rgb(215, 247, 4);
+}
+.dot-top {
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: background-color 0.3s;
+}
+.dot-top:hover {
+	background-color: rgb(248, 0, 182);
+}
+.dot-top:hover ~ .box {
+	background-color: rgb(248, 0, 182);
+}
+.dot-bottom {
+	bottom: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: background-color 0.3s;
+}
+.dot-bottom:hover {
+	background-color: rgb(255, 0, 0);
+}
+.dot-bottom:hover ~ .box {
+	background-color: rgb(255, 0, 0);
+}
+
+@keyframes appear-top {
+	0% {
+		opacity: 0;
+		transform: translateY(500px);
+		border-radius: 50%;
+	}
+	30% {
+		opacity: 1;
+		transform: rotate(45deg);
+	}
+	80% {
+		transform: rotate(45deg);
+		border-radius: 0;
+	}
+	100% {
+		transform: rotate(45deg) scaleX(5);
+		border-radius: 0;
+	}
+}
+
+@keyframes appear-left {
+	0% {
+		opacity: 0;
+		transform: translateY(500px);
+		border-radius: 50%;
+	}
+	30% {
+		opacity: 1;
+		transform: rotate(45deg);
+	}
+	80% {
+		transform: rotate(-45deg);
+		border-radius: 0;
+	}
+	100% {
+		transform: rotate(-45deg) scaleX(5);
+		border-radius: 0;
+	}
+}
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes mainAnime {
+	0% {
+		transform: rotate(360deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+/* =============================================== */
+/* Druga animacja */
+/* =============================================== */
+
+.card {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background-color: rgba(5, 32, 32, 0.931);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.card span {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	background-image: url('../img/lampa.jpg');
+
+	background-size: cover;
+
+	transition: transform 0.5s ease-in-out;
+}
+.card span:nth-child(1) {
+	width: 25%;
+
+	z-index: 4;
+}
+
+.card span:nth-child(2) {
+	width: 50%;
+
+	transition-delay: 0.1s;
+	z-index: 3;
+}
+.card span:nth-child(3) {
+	width: 75%;
+	transition-delay: 0.2s;
+	z-index: 2;
+}
+.card span:nth-child(4) {
+	width: 100%;
+	transition-delay: 0.3s;
+	z-index: 1;
+}
+.card:hover span {
+	transform: translate(0, -100%);
+}
+.card:hover span:nth-child(1) {
+	transition-delay: 0.3s;
+}
+
+.card:hover span:nth-child(2) {
+	transition-delay: 0.2s;
+}
+.card:hover span:nth-child(3) {
+	transition-delay: 0.1s;
+}
+.card:hover span:nth-child(4) {
+	transition-delay: 0s;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	gap: 20px;
+	padding: 20px;
+	background-color: rgba(5, 32, 32, 0.931);
+	padding: 1em 2em;
+	translate: 0 100%;
+	transition: 1s translate;
+}
+.card:hover .card-body {
+	translate: 0;
+}
+.card-name {
+	color: white;
+	font-size: 2em;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+.card-text {
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 2em;
+}
+.card-link {
+	text-decoration: none;
+	color: white;
+
+	border: 1px solid white;
+	text-align: center;
+	padding: 0.5em 5em;
+	transition: color 0.3s, background-color 0.3s ease-in-out;
+}
+.card-link:hover {
+	background-color: white;
+	color: black;
+}
+
+/* =============================================== */
+/* Trzecia animacja */
+/* =============================================== */
+.box-photo {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(92, 92, 92, 0.014);
+}
+.card-photo {
+	position: absolute;
+	width: 300px;
+	height: 400px;
+	background-color: white;
+	overflow: hidden;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	transform: scale(0.4);
+	transition: transform 0.5s ease-in-out;
+}
+.one {
+	top: 2px;
+	left: 150px;
+	transform: rotate(-18deg) scale(0.4) translateX(-30%) translateY(-30%);
+
+	z-index: 5;
+}
+.two {
+	top: 110px;
+	left: 30px;
+	transform: rotate(15deg) scale(0.4) translateX(-30%) translateY(-60%);
+	z-index: 2;
+}
+.three {
+	top: 70px;
+	left: 50px;
+	transform: rotate(-5deg) scale(0.4);
+	z-index: 3;
+}
+.four {
+	top: 100px;
+	left: 150px;
+
+	transform: rotate(15deg) scale(0.4) translateX(-50%) translateY(50%);
+	transition: transform 0.5s ease-in-out;
+	z-index: 4;
+}
+.one::before,
+.two::before,
+.three::before,
+.four::before {
+	content: '';
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	bottom: 80px;
+	right: 20px;
+
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+}
+.one::before {
+	background-image: url('../img/img1.jpg');
+}
+.two::before {
+	background-image: url('../img/img3.jpg');
+}
+.three::before {
+	background-image: url('../img/img4.jpg');
+}
+.four::before {
+	background-image: url('../img/img2.jpg');
+}
+.one::after,
+.two::after,
+.three::after,
+.four::after {
+	content: 'Photo';
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+	color: #000000;
+}
+
+.one:hover,
+.two:hover,
+.three:hover,
+.four:hover {
+	transform: rotate(0) scale(1) translateX(0) translateY(0);
+	z-index: 20;
+}
+/*  trzecia druga kolumna*/
+.card-three {
+	background-color: aqua;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+}
+.content-three {
+	position: relative;
+	width: 250px;
+	height: 300px;
+
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9), 0 6px 6px rgba(0, 0, 0, 0.9);
+	z-index: 1;
+	transition: 1s;
+}
+.content-three:hover {
+	border-radius: 40px;
+}
+img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	filter: grayscale(100%) brightness(60%);
+	transition: 1s;
+}
+.content-three::before,
+.content-three::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 110%;
+	height: 110%;
+	transform: translate(-5%, -5%);
+
+	background: linear-gradient(135deg, rgb(207, 117, 7), rgb(244, 252, 0));
+	filter: blur(30px);
+	z-index: -1;
+	transition: 1s;
+	opacity: 0;
+}
+.content-three::after {
+	filter: blur(50px);
+}
+
+.content-three:hover img {
+	filter: grayscale(0%) brightness(100%);
+	border-radius: 40px;
+}
+.content-three:hover::before,
+.content-three:hover::after {
+	opacity: 1;
+}
+
+/* =============================================== */
+/* Czwarta animacja */
+/* =============================================== */
+.grid-container {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	height: 100vh;
+}
+.grid-content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(92, 92, 92, 0.5);
+	color: white;
+}
+
+.loagind-animation {
+	position: relative;
+	display: inline-block;
+	font-size: 5.5rem;
+	font-weight: 700;
+	letter-spacing: 0.1rem;
+}
+.loagind-animation::after {
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: rgb(10, 80, 208);
+	overflow: hidden;
+	width: 0;
+	animation: loading 10s linear infinite;
+}
+@keyframes loading {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+.dotted-load {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: 18px dotted rgb(160, 107, 148);
+	/* animation: doddet-load 4s linear infinite; */
+	animation: rotate-animation 5s linear infinite;
+}
+
+.dotted-load::after {
+	content: '';
+	position: absolute;
+	top: 6px;
+	left: 8px;
+	width: 50%;
+	height: 50%;
+	width: 30px;
+	height: 30px;
+	transform: translate(-50%, -50%);
+
+	border-radius: 100%;
+	border: 10px dotted rgb(107, 160, 127);
+
+	animation: rotate-animation 2s linear infinite;
+}
+@keyframes rotate-animation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.preloader {
+	width: 24px;
+	height: 24px;
+	border-radius: 100%;
+	animation: animation 1.1s infinite ease;
+}
+
+@keyframes animation {
+	0%,
+	100% {
+		box-shadow: 0 -59px 0 0 #f34a53, 40px -40px 0 0 rgba(243, 74, 83, 0.2),
+			57px 0 0 0 rgba(243, 74, 83, 0.2), 39px 39px 0 0 rgba(243, 74, 83, 0.2),
+			0 57px 0 0 rgba(243, 74, 83, 0.2), -40px 40px 0 0 rgba(243, 74, 83, 0.2),
+			-59px 0 0 0 rgba(243, 74, 83, 0.5), -40px -40px 0 0 rgba(243, 74, 83, 0.7);
+	}
+	12.5% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.7), 40px -40px 0 0 #f34a53,
+			57px 0 0 0 rgba(243, 74, 83, 0.2), 39px 39px 0 0 rgba(243, 74, 83, 0.2),
+			0 57px 0 0 rgba(243, 74, 83, 0.2), -40px 40px 0 0 rgba(243, 74, 83, 0.2),
+			-59px 0 0 0 rgba(243, 74, 83, 0.2), -40px -40px 0 0 rgba(243, 74, 83, 0.5);
+	}
+	25% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.5),
+			40px -40px 0 0 rgba(243, 74, 83, 0.7), 57px 0 0 0 #f34a53,
+			39px 39px 0 0 rgba(243, 74, 83, 0.2), 0 57px 0 0 rgba(243, 74, 83, 0.2),
+			-40px 40px 0 0 rgba(243, 74, 83, 0.2), -59px 0 0 0 rgba(243, 74, 83, 0.2),
+			-40px -40px 0 0 rgba(243, 74, 83, 0.2);
+	}
+	37.5% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.2),
+			40px -40px 0 0 rgba(243, 74, 83, 0.5), 57px 0 0 0 rgba(243, 74, 83, 0.7),
+			39px 39px 0 0 rgba(243, 74, 83, 0.2), 0 57px 0 0 rgba(243, 74, 83, 0.2),
+			-40px 40px 0 0 rgba(243, 74, 83, 0.2), -59px 0 0 0 rgba(243, 74, 83, 0.2),
+			-40px -40px 0 0 rgba(243, 74, 83, 0.2);
+	}
+	50% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.2),
+			40px -40px 0 0 rgba(243, 74, 83, 0.2), 57px 0 0 0 rgba(243, 74, 83, 0.5),
+			39px 39px 0 0 rgba(243, 74, 83, 0.7), 0 57px 0 0 #f34a53,
+			-40px 40px 0 0 rgba(243, 74, 83, 0.2), -59px 0 0 0 rgba(243, 74, 83, 0.2),
+			-40px -40px 0 0 rgba(243, 74, 83, 0.2);
+	}
+	62.5% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.2),
+			40px -40px 0 0 rgba(243, 74, 83, 0.2), 57px 0 0 0 rgba(243, 74, 83, 0.2),
+			39px 39px 0 0 rgba(243, 74, 83, 0.5), 0 57px 0 0 rgba(243, 74, 83, 0.7),
+			-40px 40px 0 0 #f34a53, -59px 0 0 0 rgba(243, 74, 83, 0.2),
+			-40px -40px 0 0 rgba(243, 74, 83, 0.2);
+	}
+	75% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.2),
+			40px -40px 0 0 rgba(243, 74, 83, 0.2), 57px 0 0 0 rgba(243, 74, 83, 0.2),
+			39px 39px 0 0 rgba(243, 74, 83, 0.2), 0 57px 0 0 rgba(243, 74, 83, 0.5),
+			-40px 40px 0 0 rgba(243, 74, 83, 0.7), -59px 0 0 0 #f34a53,
+			-40px -40px 0 0 rgba(243, 74, 83, 0.2);
+	}
+	87.5% {
+		box-shadow: 0 -59px 0 0 rgba(243, 74, 83, 0.2),
+			40px -40px 0 0 rgba(243, 74, 83, 0.2), 57px 0 0 0 rgba(243, 74, 83, 0.2),
+			39px 39px 0 0 rgba(243, 74, 83, 0.2), 0 57px 0 0 rgba(243, 74, 83, 0.2),
+			-40px 40px 0 0 rgba(243, 74, 83, 0.5), -59px 0 0 0 rgba(243, 74, 83, 0.7),
+			-40px -40px 0 0 #f34a53;
+	}
+}
+/*  */
+.circle-load {
+	border-top: 12px solid rgba(138, 245, 136, 0.2);
+	border-right: 12px solid rgba(138, 245, 136, 0.2);
+	border-bottom: 12px solid rgba(138, 245, 136, 0.2);
+	border-left: 12px solid #63f34a;
+
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+	animation: circle-load 2s infinite linear;
+}
+
+@keyframes circle-load {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+/* ================ */
+/* media queries */
+/* =============== */
+@media (min-width: 481px) and (max-width: 1024px) {
+	.anime1 {
+		width: 100%;
+		height: 100%;
+	}
+
+	.box {
+		width: 70px;
+		height: 70px;
+	}
+
+	.dot {
+		position: absolute;
+		height: 20px;
+		width: 20px;
+		background-color: black;
+		border-radius: 50px;
+		border: none;
+		animation: appear 1.5s 4s both;
+	}
+	.dot::after {
+		height: 28px;
+		width: 28px;
+		border: 3px solid black;
+	}
+
+	.dot-top {
+		top: 25%;
+	}
+
+	.dot-bottom {
+		bottom: 25%;
+	}
+	/* trzecia */
+	.box {
+		width: 100%;
+		height: 500px;
+	}
+	.card {
+		position: absolute;
+		width: 300px;
+		height: 400px;
+	}
+	.one {
+		transform: rotate(-18deg) scale(0.4) translateX(-30%) translateY(-30%);
+	}
+	.two {
+		transform: rotate(15deg) scale(0.4) translateX(-30%) translateY(-60%);
+	}
+	.three {
+		transform: rotate(-5deg) scale(0.4);
+	}
+	.four {
+		transform: rotate(15deg) scale(0.4) translateX(-50%) translateY(50%);
+	}
+
+	.one:hover,
+	.two:hover,
+	.three:hover,
+	.four:hover {
+		transform: rotate(0) scale(0.8) translateX(0) translateY(0);
+	}
+}
+@media (max-width: 480px) {
+	.anime1 {
+		width: 100%;
+		height: 100%;
+	}
+
+	.box {
+		width: 60px;
+		height: 60px;
+	}
+
+	.dot {
+		position: absolute;
+		height: 16px;
+		width: 16px;
+	}
+	.dot::after {
+		height: 24px;
+		width: 24px;
+		border: 2px solid black;
+	}
+	.dot-left {
+		left: 10%;
+	}
+	.dot-right {
+		right: 10%;
+	}
+	.dot-top {
+		top: 30%;
+	}
+
+	.dot-bottom {
+		bottom: 30%;
+	}
+	/* druga anima */
+	.card {
+		width: 400px;
+		height: 400px;
+	}
+
+	.card-name {
+		color: white;
+		font-size: 1.5em;
+		margin-bottom: 1em;
+		text-transform: uppercase;
+	}
+	.card-text {
+		font-size: 1.1em;
+		font-weight: normal;
+	}
+
+	/* Czwarta anima  */
+	.grid-container {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 10px;
+		height: 100vh;
+	}
+	/* trzacia anima */
+	.box {
+		width: 100%;
+		height: 500px;
+	}
+	.card {
+		position: absolute;
+		width: 300px;
+		height: 400px;
+	}
+	.one {
+		transform: rotate(-18deg) scale(0.4) translateX(-30%) translateY(-30%);
+	}
+	.two {
+		transform: rotate(15deg) scale(0.4) translateX(-30%) translateY(-60%);
+	}
+	.three {
+		transform: rotate(-5deg) scale(0.4);
+	}
+	.four {
+		transform: rotate(15deg) scale(0.4) translateX(-50%) translateY(50%);
+	}
+
+	.one:hover,
+	.two:hover,
+	.three:hover,
+	.four:hover {
+		transform: rotate(0) scale(0.8) translateX(0) translateY(0);
+	}
+}

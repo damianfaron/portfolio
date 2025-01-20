@@ -1,0 +1,807 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Open Sans', serif;
+}
+/* =================================== */
+/* button navi */
+/* =================================== */
+.burger-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 1em;
+	background: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 1000;
+}
+.btn-box {
+	position: relative;
+	width: 40px;
+	height: 30px;
+}
+
+.btn-bars,
+.btn-bars::after,
+.btn-bars::before {
+	position: absolute;
+	right: 0;
+	height: 4px;
+	content: '';
+	background-color: white;
+	transition: width 0.3s;
+}
+.btn-bars {
+	width: 100%;
+}
+.btn-bars::after {
+	top: 13px;
+	width: 60%;
+}
+.btn-bars::before {
+	top: 27px;
+	width: 30%;
+	transition-delay: 0.1s;
+}
+.btn-box:hover .btn-bars,
+.btn-box:hover .btn-bars::after,
+.btn-box:hover .btn-bars::before {
+	width: 100%;
+}
+
+.burger-btn.header-color {
+	background: none;
+}
+
+.burger-btn.main-color {
+	background-color: rgb(10, 114, 73); /* Kolor przycisku w main */
+	clip-path: polygon(70% 0%, 100% 25%, 100% 100%, 30% 100%, 0% 75%, 0% 0%);
+}
+/* ===================================================== */
+/*Navigacja */
+/* ===================================================== */
+.nav {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(5, 32, 32);
+	transform: translateX(100%);
+	z-index: 100;
+	transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.nav-show {
+	transform: translateX(0);
+}
+.nav-item {
+	position: relative;
+	display: block;
+	text-decoration: none;
+	margin: 0.5em 0;
+	padding: 0.5em 0;
+	font-size: 2.8rem;
+	color: rgb(255, 255, 255);
+}
+.nav-item::before {
+	position: absolute;
+	top: 0;
+	left: -10px;
+	width: 3px;
+	height: 100%;
+	background-color: wheat;
+	content: '';
+	transform: scaleY(0);
+	transition: transform 0.3s;
+}
+.nav-item::after {
+	position: absolute;
+	bottom: 0;
+	left: 0px;
+	width: 100%;
+	height: 3px;
+	background-color: wheat;
+	content: '';
+	transform: scaleX(0);
+	transition: transform 0.4s;
+}
+.nav-item:hover::before {
+	transform: scaleY(1);
+}
+.nav-item:hover::after {
+	transform: scaleX(1);
+}
+/* ===================================================== */
+/* header  */
+/* ===================================================== */
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	background-color: black;
+	height: 100vh;
+	width: 100%;
+	color: white;
+	font-size: 2rem;
+	text-align: center;
+	padding: 1rem;
+}
+.header-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	background-attachment: fixed;
+}
+
+.header-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	border-radius: 20px;
+	height: 200px;
+	width: 900px;
+	background-color: rgba(5, 32, 32, 0.931);
+	transition: background-color 0.5s;
+}
+.header-container:hover {
+	background-color: green;
+}
+.header-container p {
+	font-size: 26px;
+	padding: 1em;
+}
+.header-button {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	margin: 0 auto; /* Automatyczne marginesy wyśrodkowują przycisk */
+	width: fit-content;
+	padding: 10px 20px;
+	background-color: rgba(5, 32, 32, 0.903);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 24px;
+	transition: background-color 0.5s;
+}
+
+.header-button:hover {
+	background-color: green;
+}
+/*===================================================== */
+/* sekcja ogólne  */
+/* ===================================================== */
+/* Styl dla całej sekcji */
+/* Twoje istniejące style z animacjami */
+
+.section {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+}
+
+.section-all {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 1400px;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+}
+.section.animate .section-title {
+	font-size: 32px;
+	text-transform: uppercase;
+	border-bottom: 4px solid black;
+	width: 50%;
+	animation: mojaAnimaTop 1s ease-out forwards;
+}
+
+.about-content {
+	display: flex;
+	justify-content: space-between; /* Ustawia elementy obok siebie */
+	align-items: flex-start; /* Ustalamy wyrównanie elementów do góry */
+	width: 100%;
+	max-width: 1400px;
+	padding-top: 5em;
+	/* background-color: rebeccapurple; */
+}
+
+.left-content {
+	flex: 1;
+	text-align: center;
+	padding: 2em;
+	font-size: 20px;
+}
+
+.right-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2em;
+	flex: 1;
+	padding-left: 10px;
+	margin-left: 50px;
+	margin-top: 100px;
+	position: relative;
+}
+
+.section.animate .squares {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	animation: mojaAnima 1s ease-out forwards;
+}
+
+.square {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border: 1px solid rgb(10, 114, 73);
+	border-radius: 5px;
+	transform: rotate(45deg);
+	background-color: rgba(128, 128, 128, 0.112);
+}
+.square-text {
+	font-size: 16px;
+	text-transform: uppercase;
+	transform: rotate(-45deg);
+	color: rgb(10, 114, 73);
+}
+
+.section.animate .code-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+	font-size: 40px;
+	color: rgb(10, 114, 73);
+	animation: mojaAnimaPrawa 1s ease-out forwards;
+}
+
+.section.animate .about-me {
+	margin-top: 20px;
+	font-size: 16px;
+	line-height: 1.6;
+	animation: mojaAnimaPrawa 1s ease-out forwards;
+}
+
+.skills {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.skill {
+	padding: 10px;
+	background-color: #f4f4f4;
+	border-radius: 5px;
+}
+/* animacja do sekcji  */
+
+@keyframes mojaAnima {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes mojaAnimaPrawa {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes mojaAnimaTop {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+/* =============================================== */
+/* projekty */
+/* =============================================== */
+.project {
+	background-color: rgba(128, 128, 128, 0.112);
+}
+.animate .about-content-project {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+
+	animation: mojaAnimaPrawa 1s ease-out forwards;
+}
+.squares-all-project {
+	padding: 5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.square-project {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 300px;
+	height: 300px;
+	border: 2px solid rgb(10, 114, 73);
+	border-radius: 5px;
+	box-shadow: 5px 5px 15px rgb(10, 114, 73, 0.5);
+}
+
+.square-project-img {
+	width: 90%;
+	height: 90%;
+}
+.title-project {
+	font-size: 26px;
+	padding-top: 2em;
+}
+.text-project {
+	font-size: 16px;
+}
+.button-project {
+	width: 100px;
+	height: 40px;
+	margin-top: 1em;
+	border: 1px solid rgb(10, 114, 73);
+	border-radius: 8px;
+	cursor: pointer;
+	transition: color 0.5s, background-color 0.7s;
+}
+.button-project:hover {
+	color: white;
+	background-color: rgb(10, 114, 73);
+}
+.button-project-link {
+	text-decoration: none;
+	color: black;
+}
+
+/* ================================================== */
+/* Formularz kontaktowy */
+/* ================================================== */
+
+.animate .form-all {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* Dwie kolumny: lewa i prawa */
+	gap: 20px; /* Odstęp między kolumnami */
+	align-items: start; /* Wyrównanie do góry */
+	max-width: 1400px; /* Opcjonalnie: maksymalna szerokość formularza */
+	width: 100%;
+	margin: 0 auto; /* Wycentrowanie formularza na stronie */
+	animation: mojaAnima 1s ease-out forwards;
+}
+
+.form-name {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 2em;
+	padding-top: 5em;
+}
+.form-message {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	padding: 2em;
+	padding-top: 5em;
+}
+
+.form-input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid rgb(10, 114, 73);
+	border-radius: 5px;
+}
+
+.form-textarea {
+	width: 100%;
+	height: 200px;
+	padding: 10px;
+	border: 1px solid rgb(10, 114, 73);
+	border-radius: 5px;
+	resize: none;
+}
+.form-message .button {
+	align-self: flex-end;
+	width: 100px;
+	height: 30px;
+	border: 1px solid rgb(10, 114, 73);
+	border-radius: 8px;
+	cursor: pointer;
+	transition: color 0.3s, background-color 0.5s;
+}
+
+.button:hover {
+	background-color: rgb(10, 114, 73);
+	color: white;
+}
+/* ================================================== */
+/* Stopka */
+/* ================================================== */
+
+.footer {
+	position: relative;
+	background-image: url('../img/header3.jpg');
+	background-attachment: fixed;
+	height: 200px;
+	background-color: gray;
+	width: 100%;
+	display: flex;
+	align-self: center;
+	justify-content: center;
+}
+.footer::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.606);
+	z-index: 1;
+}
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 2em;
+	font-size: 14px;
+	color: white;
+	z-index: 2;
+}
+.end-footer {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	justify-content: flex-start;
+	padding-top: 2em;
+}
+.end-footer-button {
+	border: 1px solid rgb(10, 114, 73);
+	border-radius: 8px;
+	width: 50px;
+	padding: 0.1em;
+	background-color: transparent;
+	cursor: pointer;
+	transition: background-color 0.5s;
+}
+.end-footer-button i {
+	color: rgb(10, 114, 73);
+	transition: color 0.3s;
+}
+.end-footer-button:hover {
+	background-color: rgb(10, 114, 73);
+}
+.end-footer-button:hover i {
+	color: white;
+}
+.footer-icons {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	color: #085ab2;
+}
+.footer-icons a {
+	color: #085ab2;
+	transition: color 0.5s;
+}
+.footer-icons a:hover {
+	color: white;
+}
+
+.footer-copyright {
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding-top: 1em;
+	font-style: italic;
+}
+/* =================================================================================================================================== */
+/* =================================================================================================================================== */
+/* =================================================================================================================================== */
+/* ================================================= */
+/* ================================================= */
+/* Media queries */
+/* ================================================= */
+/* ================================================= */
+/* =================================================================================================================================== */
+/* =================================================================================================================================== */
+/* =================================== */
+/* button navi */
+/* =================================== */
+/* TELEFONY do 480 px */
+@media (max-width: 480px) {
+	.burger-btn {
+		top: 10;
+		right: 10;
+		padding: 1em;
+	}
+	.btn-box {
+		position: relative;
+		width: 30px;
+		height: 20px;
+	}
+
+	.btn-bars,
+	.btn-bars::after,
+	.btn-bars::before {
+		position: absolute;
+		right: 0;
+		height: 3px;
+		content: '';
+		background-color: white;
+		transition: width 0.3s;
+	}
+
+	/* ===================================================== */
+	/* header  */
+	/* ===================================================== */
+
+	.header-container {
+		height: 30%;
+		width: 90%;
+		background-color: rgba(5, 32, 32, 0.959);
+	}
+
+	.header-container p {
+		font-size: 20px;
+	}
+	/* ===================================================== */
+	/* O mnie  */
+	/* ==================================================== */
+
+	.section-all {
+		width: 100%;
+	}
+	.section.animate .section-title {
+		font-size: 22px;
+	}
+
+	.about-content {
+		flex-direction: column;
+		padding-top: 2em;
+	}
+
+	.right-content .left-content {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.right-content {
+		margin-top: 0;
+	}
+
+	.section.animate .squares {
+		gap: 40px; /* Mniejsza przerwa między kwadratami */
+		position: relative; /* Zmienia pozycjonowanie dla responsywności */
+		top: 0;
+		left: 0;
+	}
+
+	.square {
+		width: 60px; /* Mniejsze kwadraty */
+		height: 60px;
+	}
+	.square-text {
+		font-size: 14px;
+	}
+
+	.section.animate .about-me {
+		font-size: 14px;
+	}
+
+	.skills {
+		flex-direction: column; /* Układ pionowy dla małych ekranów */
+		align-items: center; /* Centrowanie umiejętności */
+	}
+
+	.skill {
+		width: 100%; /* Pełna szerokość dla każdego elementu */
+		margin-bottom: 0px;
+		text-align: center; /* Wyrównanie tekstu w środku */
+	}
+	/* ============================================= */
+	/* projekty */
+	/* ============================================ */
+	.project {
+		background-color: rgba(128, 128, 128, 0.112);
+	}
+	.animate .about-content-project {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.square-project {
+		width: 200px;
+		height: 200px;
+	}
+
+	.title-project {
+		font-size: 18px;
+	}
+	.text-project {
+		font-size: 14px;
+	}
+	.button-project {
+		width: 80px;
+		height: 30px;
+		font-size: 12px;
+		font-weight: 300;
+	}
+	/* ================================================== */
+	/* Formularz kontaktowy */
+	/* ================================================== */
+
+	.animate .form-all {
+		grid-template-columns: 1fr; /* Dwie kolumny: lewa i prawa */
+		gap: 10px; /* Odstęp między kolumnami */
+
+		width: 100%;
+	}
+
+	.form-name {
+		padding: 1em;
+		padding-top: 5em;
+	}
+	.form-message {
+		padding: 1em;
+		padding-top: 1em;
+	}
+}
+/* TABLETY do 1024 px */
+@media (min-width: 481px) and (max-width: 1024px) {
+	/* ===================================================== */
+	/* header  */
+	/* ===================================================== */
+
+	.header-container {
+		height: 30%;
+		width: 90%;
+		background-color: rgba(5, 32, 32, 0.959);
+	}
+
+	.header-container p {
+		font-size: 24px;
+	}
+	/* ===================================================== */
+	/* O mnie  */
+	/* ==================================================== */
+
+	.section-all {
+		width: 100%;
+	}
+	.section.animate .section-title {
+		font-size: 25px;
+	}
+
+	.about-content {
+		flex-direction: column;
+		padding-top: 2em;
+	}
+
+	.right-content .left-content {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.right-content {
+		margin-top: 0;
+	}
+
+	.section.animate .squares {
+		gap: 40px;
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+
+	.square {
+		width: 65px;
+		height: 65px;
+	}
+	.square-text {
+		font-size: 16px;
+	}
+
+	.section.animate .about-me {
+		font-size: 16px;
+	}
+
+	.skills {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.skill {
+		width: 100%; /* Pełna szerokość dla każdego elementu */
+		margin-bottom: 0px;
+		text-align: center; /* Wyrównanie tekstu w środku */
+	}
+	/* ============================================= */
+	/* projekty */
+	/* ============================================ */
+	.project {
+		background-color: rgba(128, 128, 128, 0.112);
+	}
+	.animate .about-content-project {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.square-project {
+		width: 200px;
+		height: 200px;
+	}
+
+	.title-project {
+		font-size: 22px;
+	}
+	.text-project {
+		font-size: 16px;
+	}
+	.button-project {
+		width: 80px;
+		height: 30px;
+		font-size: 14px;
+		font-weight: 300;
+	}
+	/* ================================================== */
+	/* Formularz kontaktowy */
+	/* ================================================== */
+
+	.animate .form-all {
+		grid-template-columns: 1fr; /* Dwie kolumny: lewa i prawa */
+		gap: 10px; /* Odstęp między kolumnami */
+
+		width: 100%;
+	}
+
+	.form-name {
+		padding: 1em;
+		padding-top: 5em;
+	}
+	.form-message {
+		padding: 1em;
+		padding-top: 1em;
+	}
+}

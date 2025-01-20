@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damian Faron Frontend Developer </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+    <!-- =============================== -->
+    <!-- Przycisk nawigacji -->
+    <!-- =============================== -->
+    <button class="burger-btn ">
+        <div class="btn-box">
+            <div class="btn-bars"></div>
+        </div>
+    </button>
+    <!-- =============================== -->
+    <!-- NAWIGACJA  -->
+    <!-- =============================== -->
+    <nav class="nav  ">
+        <div class="nav-items ">
+            <a href="#Omnie" class="nav-item">O mnie</a>
+            <a href="#Portfolio" class="nav-item">Portfolio</a>
+            <a href="#Kontakt" class="nav-item">Formularz kontaktu</a>
+            <a href="#footer" class="nav-item">Autor</a>
+        </div>
+    </nav>
+    <!-- =============================== -->
+    <!-- Header -->
+    <!-- =============================== -->
+    <header class="header">
+        <img src="./img/header3.jpg" alt="" class="header-img">
+
+        <div class="header-container">
+            <p>Cześć! Nazywam się Damian Faron i jestem Frontend Developer, zajmuje się tworzeniem
+                responsywnych stron internetowych.</p>
+        </div>
+        <button class="header-button "><i class="fas fa-arrow-down"></i></button>
+    </header>
+    <!-- =============================== -->
+    <!-- Główna sekcja -->
+    <!-- =============================== -->
+    <main>
+        <section class="section" id="target-section">
+            <div class="section-all">
+                <h1 class="section-title" id="Omnie">O mnie</h1>
+                <div class="about-content">
+                    <div class="left-content">
+                        <div class="code-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <p class="about-me">Jestem frontendowym programistą, specjalizującym się w technologiach takich
+                            jak HTML5, CSS3,
+                            JavaScript oraz Sass. Mam doświadczenie w tworzeniu responsywnych i estetycznych interfejsów
+                            użytkownika, które są zgodne z najnowszymi standardami webowymi. Obecnie rozwijam swoje
+                            umiejętności w pracy z Reactem, co pozwala mi budować bardziej dynamiczne i interaktywne
+                            aplikacje. Dodatkowo, zaczynam poznawać WordPress, co otwiera możliwości tworzenia stron
+                            internetowych opartych na tym popularnym systemie CMS. Stale się uczę i jestem gotów na nowe
+                            wyzwania, które pomogą mi rozwijać się w świecie frontend developmentu.</p>
+                    </div>
+                    <div class="right-content">
+                        <div class="squares">
+                            <!-- Kwadraty -->
+                            <div class="square">
+                                <p class="square-text">Html 5</p>
+                            </div>
+                            <div class="square">
+                                <p class="square-text">Css 3</p>
+                            </div>
+                            <div class="square">
+                                <p class="square-text">Java Script</p>
+                            </div>
+                            <!-- <div class="square">
+                                <p class="square-text">Word Press</p>
+                            </div> -->
+                            <div class="square">
+                                <p class="square-text">Sass</p>
+                            </div>
+                            <!-- <div class="square">
+                                <p class="square-text">React</p>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- ======================================= -->
+        <!-- sekcja projekty  -->
+        <!-- ====================================== -->
+        <section class="section project" id="Portfolio">
+            <div class="section-all">
+                <h1 class="section-title" id="Omnie">Projekty</h1>
+                <div class="about-content-project">
+                    <div class="squares-all-project">
+                        <div class="square-project">
+                            <img src="img/ofertwa_two.jpg" alt="" class="square-project-img">
+                        </div>
+                        <h2 class="title-project">CRT Motus</h2>
+                        <p class="text-project">Strona komercyjna wykonana dla Centrum Psychologii (HTML5, CSS3,
+                            JavaScript, Sass, PHP) </p>
+
+                        <a href="https://crtmotus.pl/" target="_blank" class="button-project-link"> <button
+                                class="button-project"> Podgląd</button></a>
+                    </div>
+                    <div class="squares-all-project">
+                        <div class="square-project">
+                            <img src="img/tictactoe.png" alt="" class="square-project-img">
+                        </div>
+                        <h2 class="title-project">Gra kółko i krzyżyk</h2>
+                        <p class="text-project"> Gra stworzona w HTML5,CSS3 i JavaScript </p>
+                        <a href="./tictactoe.html" target="_blank" class="button-project-link"> <button
+                                class="button-project"> Podgląd</button></a>
+                    </div>
+                    <div class="squares-all-project">
+                        <div class="square-project">
+                            <img src="img/calculator.png" alt="" class="square-project-img">
+                        </div>
+                        <h2 class="title-project">Kalkulator</h2>
+                        <p class="text-project"> Kalkulator stworzony w HTML5,CSS3 i JavaScript </p>
+                        <a href="./calculator.html" target="_blank" class="button-project-link"> <button
+                                class="button-project"> Podgląd</button></a>
+                    </div>
+                    <div class="squares-all-project">
+                        <div class="square-project">
+                            <img src="img/animation.png" alt="" class="square-project-img">
+                        </div>
+                        <h2 class="title-project">Animacje</h2>
+                        <p class="text-project"> Przykładowe animacje wykonane w HTML5 i CSS3 </p>
+                        <a href="./animation.html" target="_blank" class="button-project-link"> <button
+                                class="button-project"> Podgląd</button></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- ======================================= -->
+        <!-- formularz kontaktowy   -->
+        <!-- ===================================== -->
+        <section class="section" id="Kontakt">
+            <div class="section-all">
+                <h1 class="section-title" id="Omnie">Kontakt</h1>
+                <form action="" class="form-all">
+                    <div class="form-name ">
+                        <input type="text" id="email" placeholder="Imię i nazwisko" class="form-input">
+                        <input type="text" id="email" placeholder="E-mail" class="form-input">
+                    </div>
+                    <div class="form-message">
+                        <textarea name="" id="" cols="70" rows="20" placeholder="Treść..."
+                            class="form-textarea"></textarea>
+                        <button class="button">Wyslij</button>
+                    </div>
+
+                </form>
+
+            </div>
+            </div>
+        </section>
+
+
+    </main>
+    <!-- =============================== -->
+    <!-- Footer         -->
+    <!-- =============================== -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/ramzes9417" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.linkedin.com/in/damian-faron-a32b0b187/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="footer-copyright"><span class="year"></span> © </p>
+            <p>Damian Faron wszystkie prawa zastrzeżone </p>
+            <div class="end-footer">
+                <p>powrót do góry</p>
+                <button class="end-footer-button">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+
+
+    </footer>
+
+
+
+    <script src="./JS/script.js"></script>
+</body>
+
+</html>
