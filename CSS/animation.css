@@ -288,14 +288,14 @@
 }
 .card-name {
 	color: white;
-	font-size: 2em;
+	font-size: 3em;
 	margin-bottom: 1em;
 	text-transform: uppercase;
 }
 .card-text {
 	color: white;
 	font-size: 1.5em;
-	font-weight: bold;
+
 	text-align: center;
 	margin-bottom: 2em;
 }
